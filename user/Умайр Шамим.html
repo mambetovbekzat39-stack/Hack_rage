@@ -677,44 +677,22 @@
     const ALL_SURAS = [
         { num: 1,  name: 'Аль-Фатиха', arabic: 'الفاتحة',  ayats: 7,   duration: '1:7',
           ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/01.mp3' },
+          audio: 'surah/01.mp3' },
 
-        { num: 87,  name: ' Аль-Аля  ', arabic: 'الأعلى  ',   ayats: 19, duration: '1-19',
+        { num: 56,  name: 'Аль-Вакиа', arabic: 'الواقعة  ',   ayats: 96, duration: '1-14',
                ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/87.mp3' },
-
-        { num: 25,  name: 'Аль-Фуркан', arabic: 'الفرقان',   ayats: 77, duration: '72-75',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/25.mp3' },
-
-        { num: 36,  name: 'Йа Син', arabic: 'يس ',   ayats: 83, duration: '1-7',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/36.mp3' },
+          audio: './surah/56.mp3' },
        
-         { num: 93,  name: 'Ад-Духа ', arabic: 'الضحى',   ayats: 11, duration: '1-11',
+        { num: 55,  name: 'Ар-РахмАн', arabic: 'الرحمن   ',   ayats: 78, duration: '17-23',
                ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/93.mp3' },
+          audio: './surah/55.mp3' },
+          
+        { num: 56,  name: 'Аль-Вакиа', arabic: 'الواقعة  ',   ayats: 96, duration: '22-27',
+               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
+          audio: './surah/056.mp3' },
 
-         { num: 3,  name: 'Аль Имран', arabic: 'ال عمران',   ayats: 200, duration: '16-18',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/03.mp3' },
+           
 
-        { num: 69,  name: 'Аль-Хакка ', arabic: 'الحاقة ',   ayats: 52, duration: '27-33',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/69.mp3' },
-
-        { num: 63,  name: 'Аль-Мунафикун', arabic: 'المنافقون',   ayats: 11, duration: '3-5',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/63.mp3' },
-
-        { num: 60,  name: 'Аль-МумтахАна', arabic: 'المنافقون',   ayats: 13, duration: '4-6',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/60.mp3' },
-
-        { num: 9,  name: 'Ат-Тавба', arabic: 'التوبة ',   ayats: 129, duration: '43-44',
-               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/9.mp3' },
-        
         // ── Добавляй новые суры сюда в том же формате ──
         // { num: 10, name: 'Юнус', arabic: 'يونس', ayats: 109, duration: '32:20',
         //   ayat: '﴿ ... ﴾', trans: '...', audio: 'surah/yunus.mp3' },
@@ -872,7 +850,7 @@
                 document.getElementById('time-total').textContent   = formatTime(audio.duration);
             }
         }, 300);
-    }
+    }   
 
     function applyBg() {
         const bg  = BACKGROUNDS[currentBgIndex] || BACKGROUNDS[0];

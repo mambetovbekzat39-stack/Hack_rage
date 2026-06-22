@@ -466,10 +466,27 @@ const items = [
   {
     title: "Умайр Шамим",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXSkiBwYHJAR9hNxt0xxnD9xobberxpEgPTg&s",
-    file: "./user2/Умайр Шамим.html",
+    file: "./user/Умайр Шамим.html",
+    
+    COMING: true
+   
+  },
+  {
+    title: "Мухаммад аль-Люхайдан",
+    img: "https://i.pinimg.com/736x/5c/43/c0/5c43c0dae900fb11f5382e94b4697af6.jpg",
+    file: "./user3/Мухаммад аль-Люхайдан.html",
+    isNew: true,
+    COMING: true
+  },
+   {
+    title: "Ясир ад-Даусари",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgxof1-H8vbVVjDpVll_gAF1vC-TflGyPejlvG7NBUw&s=10",
+    file: "./user4/Ясир ад-Даусари.html",
     isNew: true,
     coming: true
-  },
+  }
+  
+
 
   /* ─── ШАБЛОН: чтец в разработке (скоро) ───
   {
@@ -504,7 +521,7 @@ items.forEach((item, i) => {
   rank.className = "rank";
   rank.textContent = String(i + 1).padStart(2, "0");
 
-  /* NEW badge */
+
   if (item.isNew && !item.coming) {
     const nb = document.createElement("div");
     nb.className = "new-badge";
@@ -513,7 +530,6 @@ items.forEach((item, i) => {
     a.appendChild(nb);
   }
 
-  /* coming soon overlay */
   if (item.coming) {
     const ov = document.createElement("div");
     ov.className = "coming-overlay";
