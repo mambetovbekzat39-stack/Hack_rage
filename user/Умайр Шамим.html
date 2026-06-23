@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Коран плеер · nur·voice</title>
-      <meta name="description" content="чтец Ясир ад-Дауси">
-      <meta name="google-site-verification" content="34xmAkrgWgMN6jtddyTNM6W2by8bJYK1qUzxsSzp8wQ" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -679,26 +677,22 @@
     const ALL_SURAS = [
         { num: 1,  name: 'Аль-Фатиха', arabic: 'الفاتحة',  ayats: 7,   duration: '1:7',
           ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/01.mp3' },
-        
-        { num: 26,  name: 'Аш-Шуара', arabic: 'الشعراء  ',  ayats: 227,   duration: '86-95',
-          ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/26.mp3' },
-      
-        { num: 55,  name: 'Ар-РахмАн ', arabic: 'الرحمن   ',  ayats: 78,   duration: '18-23',
-          ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/55.mp3' },
+          audio: 'surah/01.mp3' },
 
-        { num: 20,  name: 'Та Ха', arabic: 'طه',  ayats: 78,   duration: '13-15',
-          ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/20.mp3' },
-
-        { num: 23,  name: 'Аль-Муминун ', arabic: 'المؤمنون',  ayats: 118,   duration: '?????',
-          ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
-          audio: './surah/23.mp3' },
-        
+        { num: 56,  name: 'Аль-Вакиа', arabic: 'الواقعة  ',   ayats: 96, duration: '1-14',
+               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
+          audio: './surah/56.mp3' },
        
-        
+        { num: 55,  name: 'Ар-РахмАн', arabic: 'الرحمن   ',   ayats: 78, duration: '17-23',
+               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
+          audio: './surah/55.mp3' },
+          
+        { num: 56,  name: 'Аль-Вакиа', arabic: 'الواقعة  ',   ayats: 96, duration: '22-27',
+               ayat: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾', trans: 'Во имя Аллаха, Милостивого, Милосердного',
+          audio: './surah/056.mp3' },
+
+           
+
         // ── Добавляй новые суры сюда в том же формате ──
         // { num: 10, name: 'Юнус', arabic: 'يونس', ayats: 109, duration: '32:20',
         //   ayat: '﴿ ... ﴾', trans: '...', audio: 'surah/yunus.mp3' },
@@ -856,7 +850,7 @@
                 document.getElementById('time-total').textContent   = formatTime(audio.duration);
             }
         }, 300);
-    }
+    }   
 
     function applyBg() {
         const bg  = BACKGROUNDS[currentBgIndex] || BACKGROUNDS[0];
