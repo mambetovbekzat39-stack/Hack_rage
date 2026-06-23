@@ -2,23 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+<loc>https://hackrage.netlify.app/</loc>
+</url>
+
+<url>
 <loc>https://hackrage.netlify.app/nur</loc>
 </url>
 
 <url>
-<loc>https://hackrage.netlify.app//user2/махди аш-шишани</loc>
+<loc>https://hackrage.netlify.app/user2/mahdi-ash-shishani</loc>
 </url>
 
 <url>
-<loc>https://hackrage.netlify.app//user4/Ясир ад-Даусари</loc>
+<loc>https://hackrage.netlify.app/user3/muhammad-al-luhaiadan</loc>
 </url>
 
 <url>
-<loc>https://hackrage.netlify.app//user3/Мухаммад аль-Люхайдан</loc>
+<loc>https://hackrage.netlify.app/user4/yasir-ad-dausari</loc>
 </url>
 
 <url>
-<loc>https://hackrage.netlify.app//user/Умайр Шамим</loc>
+<loc>https://hackrage.netlify.app/user/umair-shamim</loc>
 </url>
 
 </urlset>
