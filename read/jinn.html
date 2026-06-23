@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Джинны · Исламский гид</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --acc:#8b5cf6;
+  --acc2:#a78bfa;
+  --acc3:#c4b5fd;
+  --bg:#07090e;
+  --bg2:#0c0f17;
+  --bg3:#111520;
+  --bg4:#161b28;
+  --brd:rgba(255,255,255,.055);
+  --brd-h:rgba(139,92,246,.4);
+  --txt:rgba(255,255,255,.92);
+  --txt2:rgba(255,255,255,.60);
+  --txt3:rgba(255,255,255,.30);
+  --gold:#fbbf24;
+  --green:#34d399;
+  --rose:#fb7185;
+  --shadow:0 20px 60px rgba(99,60,220,.20);
+  --radius:28px;
+}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  padding:24px 16px 56px;
+  overflow-x:hidden;
+  color:var(--txt);
+}
+
+/* орбы */
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
+.orb1{
+  width:700px;height:700px;top:-300px;left:-200px;
+  background:radial-gradient(circle,rgba(99,60,220,.09),transparent 65%);
+  animation:orbA 15s ease-in-out infinite;
+}
+.orb2{
+  width:500px;height:500px;bottom:-200px;right:-150px;
+  background:radial-gradient(circle,rgba(139,92,246,.07),transparent 65%);
+  animation:orbA 20s ease-in-out infinite reverse;
+}
+.orb3{
+  width:300px;height:300px;top:40%;left:50%;
+  background:radial-gradient(circle,rgba(59,130,246,.04),transparent 65%);
+  animation:orbA 25s ease-in-out infinite;
+}
+@keyframes orbA{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-25px,35px) scale(.95)}
+}
+
+.page{
+  position:relative;z-index:1;
+  max-width:960px;margin:0 auto;
+}
+
+.wrap{
+  background:linear-gradient(160deg,rgba(17,21,32,.95) 0%,rgba(10,13,20,.98) 100%);
+  border:1px solid var(--brd);
+  border-radius:40px;
+  padding:36px 32px 48px;
+  box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.02) inset,0 0 100px rgba(99,60,220,.04);
+  animation:wrapIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes wrapIn{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:14px 16px;
+}
+
+.brand{display:flex;align-items:center;gap:15px}
+.brand-icon{
+  width:50px;height:50px;border-radius:17px;flex-shrink:0;
+  background:linear-gradient(145deg,#5b21b6,#8b5cf6 50%,#a78bfa);
+  display:flex;align-items:center;justify-content:center;
+  font-size:23px;font-weight:900;color:#fff;
+  box-shadow:0 8px 32px rgba(99,60,220,.5),0 0 0 1px rgba(196,181,253,.15) inset;
+  position:relative;overflow:hidden;
+  animation:iconBob 5s ease-in-out infinite;
+}
+.brand-icon::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);
+}
+@keyframes iconBob{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-2px) rotate(.5deg)}
+  75%{transform:translateY(2px) rotate(-.5deg)}
+}
+.brand-txt{display:flex;flex-direction:column;gap:2px}
+.brand-txt .main{
+  font-size:24px;font-weight:900;letter-spacing:-1px;line-height:1;
+  background:linear-gradient(110deg,#fff 0%,#c4b5fd 55%,#818cf8 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.brand-txt .sub{
+  font-size:10.5px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--txt3);
+}
+
+.topbar-r{display:flex;align-items:center;gap:12px}
+.back-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:100px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--brd);
+  color:var(--txt2);
+  font-size:13px;font-weight:600;
+  text-decoration:none;
+  transition:background .3s,border-color .3s,transform .25s,color .3s;
+  white-space:nowrap;
+}
+.back-btn:hover{
+  background:var(--bg4);
+  border-color:var(--brd-h);
+  color:var(--txt);
+  transform:translateY(-2px);
+}
+.back-btn:active{transform:scale(.96)}
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--acc2);flex-shrink:0;
+  box-shadow:0 0 10px var(--acc2);
+  animation:dotPulse 2.2s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.6)}
+}
+
+/* ── DIVIDER ── */
+.div{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,92,246,.2) 25%,rgba(99,60,220,.35) 50%,rgba(139,92,246,.2) 75%,transparent);
+  margin-bottom:30px;
+}
+
+/* ── CONTENT ── */
+.content h1{
+  font-size:clamp(28px,5vw,42px);
+  font-weight:900;
+  letter-spacing:-1px;
+  background:linear-gradient(135deg,#fff 0%,#c4b5fd 50%,#a78bfa 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;
+}
+.content .subtitle{
+  font-size:14px;
+  color:var(--txt2);
+  margin-bottom:28px;
+  font-weight:500;
+}
+.content h2{
+  font-size:22px;
+  font-weight:800;
+  color:var(--acc2);
+  margin:32px 0 14px 0;
+  letter-spacing:-.3px;
+  border-bottom:1px solid rgba(167,139,250,.15);
+  padding-bottom:8px;
+}
+.content h2 .icon{font-size:26px;margin-right:8px}
+.content h3{
+  font-size:18px;
+  font-weight:700;
+  color:var(--gold);
+  margin:24px 0 10px 0;
+}
+.content p{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--txt2);
+  margin-bottom:16px;
+}
+.content ul{
+  list-style:none;
+  padding:0;
+  margin:10px 0 18px 0;
+}
+.content ul li{
+  padding:8px 0 8px 28px;
+  position:relative;
+  border-bottom:1px solid rgba(255,255,255,.03);
+  color:var(--txt2);
+  font-size:14.5px;
+  line-height:1.6;
+}
+.content ul li::before{
+  content:"✦";
+  position:absolute;
+  left:4px;
+  top:8px;
+  color:var(--acc2);
+  font-size:13px;
+  opacity:.6;
+}
+.content .quote{
+  background:rgba(139,92,246,.06);
+  border-left:4px solid var(--acc2);
+  padding:16px 20px;
+  border-radius:0 16px 16px 0;
+  margin:18px 0;
+  font-style:italic;
+  color:var(--txt);
+  font-size:15px;
+  line-height:1.7;
+}
+.content .quote .source{
+  display:block;
+  margin-top:6px;
+  font-style:normal;
+  color:var(--txt3);
+  font-size:13px;
+  font-weight:500;
+}
+.content .highlight{
+  color:var(--gold);
+  font-weight:600;
+}
+.content .green{color:var(--green)}
+.content .rose{color:var(--rose)}
+
+/* ── FOOTER ── */
+.footer{
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;justify-content:center;
+  color:var(--txt3);font-size:11px;font-weight:500;letter-spacing:.3px;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:740px){
+  .wrap{padding:28px 20px 36px;border-radius:32px}
+  .content h2{font-size:20px}
+  .content p{font-size:14px}
+  .content ul li{font-size:13.5px}
+}
+@media(max-width:500px){
+  .wrap{padding:20px 14px 28px;border-radius:24px}
+  .topbar{gap:10px}
+  .brand-icon{width:40px;height:40px;font-size:19px;border-radius:14px}
+  .brand-txt .main{font-size:19px}
+  .back-btn{padding:6px 12px;font-size:12px}
+  .back-btn span:last-child{display:none}
+  .content h1{font-size:26px}
+  .content h2{font-size:18px}
+  .content h3{font-size:16px}
+  .content p{font-size:13.5px}
+  .content ul li{font-size:13px;padding:6px 0 6px 24px}
+  .content .quote{font-size:13.5px;padding:12px 14px}
+}
+@media(max-width:360px){
+  .wrap{padding:16px 10px 22px;border-radius:18px}
+  .brand-icon{width:34px;height:34px;font-size:16px}
+  .brand-txt .main{font-size:17px}
+  .content h1{font-size:22px}
+  .content h2{font-size:16px}
+  .content p{font-size:12.5px}
+}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(139,92,246,.2);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(139,92,246,.38)}
+</style>
+</head>
+<body>
+
+<!-- орбы -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="page">
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div class="brand-txt">
+        <span class="main">Hack_rage</span>
+        <span class="sub">исламский гид</span>
+      </div>
+    </div>
+    <div class="topbar-r">
+      <a href="read.html" class="back-btn"><span>←</span><span>Назад</span></a>
+      <span class="badge-dot"></span>
+    </div>
+  </header>
+
+  <div class="div"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <h1>🌪️ Джинны</h1>
+    <div class="subtitle">Сотворённые из огня — их природа, виды и отношения с человеком</div>
+
+    <p>
+      <span class="highlight">Джинны</span> — это разумные существа, созданные Аллахом из бездымного огня. 
+      Они, как и люди, обладают свободой воли: среди них есть верующие и неверующие, праведные и грешные. 
+      Вера в джиннов — неотъемлемая часть исламского вероучения. 
+      В Коране им посвящена целая сура (72-я сура «Аль-Джинн»), а также множество аятов в других сурах.
+    </p>
+
+    <h2><span class="icon">🔥</span> Происхождение и природа</h2>
+    <p>
+      Джинны были созданы <span class="highlight">до людей</span> из «огня самума» (бездымного пламени). 
+      Аллах говорит: «И создал Он джиннов из бездымного огня» (Коран, 55:15). 
+      В отличие от ангелов, которые созданы из света и не имеют свободы воли, джинны обладают разумом и могут выбирать между добром и злом. 
+      Именно поэтому среди них есть мусульмане, христиане, иудеи и безбожники.
+    </p>
+
+    <h3>👁️ Видят ли люди джиннов?</h3>
+    <p>
+      Джинны могут видеть людей, но люди <span class="highlight">не видят джиннов</span> в их истинном облике. 
+      Однако иногда Аллах позволяет некоторым людям видеть их, или джинны могут принимать различные формы (животных, людей, предметов). 
+      Пророк Мухаммад (САВ) сказал: «Воистину, шайтан течёт в крови сына Адама» (Сахих аль-Бухари), 
+      указывая на их близость к человеку.
+    </p>
+
+    <h2><span class="icon">🧬</span> Виды джиннов</h2>
+    <p>
+      Исламские ученые выделяют несколько видов джиннов, основываясь на Коране и хадисах:
+    </p>
+    <ul>
+      <li><span class="green">Джинны-мусульмане</span> — верующие джинны, которые следуют Исламу. Они могут помогать людям и получать награду от Аллаха.</li>
+      <li><span class="rose">Джинны-неверующие (шайтаны)</span> — те, кто отверг веру и являются врагами людей. Они стремятся сбить человека с пути.</li>
+      <li><span class="green">Муджаннады</span> — джинны, которые живут среди людей и могут влиять на них.</li>
+      <li><span class="green">Хинны</span> — джинны-животные, которые принимают облик змей, собак и т.д.</li>
+      <li><span class="green">Аммар</span> — джинны, которые могут вселяться в людей (одержимость).</li>
+    </ul>
+    <div class="quote">
+      «Скажи: „Открыто мне, что несколько джиннов слушали [чтение Корана] и сказали: „Воистину, мы слышали удивительный Коран, который наставляет на прямой путь. Мы уверовали в него““» (Коран, 72:1–2)
+      <span class="source">— Сура «Аль-Джинн»</span>
+    </div>
+
+    <h2><span class="icon">⚡</span> Способности джиннов</h2>
+    <p>
+      Джинны обладают способностями, превосходящими человеческие. Они могут:
+    </p>
+    <ul>
+      <li>Передвигаться с огромной скоростью — быстрее ветра.</li>
+      <li>Принимать различные формы — людей, животных, предметов.</li>
+      <li>Влиять на мысли и чувства людей (васвас).</li>
+      <li>Вселяться в людей (одержимость).</li>
+      <li>Проникать в закрытые помещения.</li>
+      <li>Видеть людей, оставаясь невидимыми.</li>
+    </ul>
+    <p>
+      Однако их сила ограничена волей Аллаха, и они не могут причинить вред тому, кто искренне уповает на Всевышнего.
+    </p>
+
+    <h2><span class="icon">🤝</span> Отношения джиннов с людьми</h2>
+    <p>
+      Джинны могут влиять на людей как положительно, так и отрицательно. 
+      Верующие джинны могут помогать людям, вдохновлять на добро, охранять их. 
+      Неверующие джинны (шайтаны) стремятся навредить: они внушают злые мысли, толкают к грехам, могут вызывать болезни и одержимость.
+    </p>
+    <p>
+      Пророк Мухаммад (САВ) был послан не только к людям, но и к джиннам. 
+      Он читал им Коран и призывал к Исламу. 
+      В хадисе сказано: «Когда я читал Коран, ко мне пришли джинны, и я читал им» (Муслим).
+    </p>
+
+    <h2><span class="icon">🛡️</span> Защита от злых джиннов</h2>
+    <p>
+      Ислам даёт чёткие указания, как защитить себя от вреда со стороны джиннов:
+    </p>
+    <ul>
+      <li><span class="green">Искренняя вера и упование на Аллаха</span> — самая сильная защита.</li>
+      <li><span class="green">Чтение Корана</span> — особенно суры «Аль-Бакара» (аят аль-Курси), «Аль-Ихляс», «Аль-Фаляк», «Ан-Нас».</li>
+      <li><span class="green">Произнесение «Бисмиллах»</span> перед входом в дом, перед едой, перед началом любых дел.</li>
+      <li><span class="green">Соблюдение омовения и намаза</span> — они отдаляют шайтанов.</li>
+      <li><span class="green">Избегание мест, где могут обитать джинны</span> — пустыни, руины, бани, туалеты (но если необходимо, читать соответствующие дуа).</li>
+      <li><span class="green">Чтение дуа перед сном</span> — например, аят аль-Курси и последние суры Корана.</li>
+      <li><span class="green">Не оставлять мусор и нечистоты</span> — они привлекают джиннов.</li>
+    </ul>
+    <div class="quote">
+      «Когда человек входит в свой дом и произносит имя Аллаха при входе и во время еды, шайтан говорит своим собратьям: „Нет для вас ночлега и ужина здесь“» (Сахих Муслим)
+      <span class="source">— Пророк Мухаммад (САВ)</span>
+    </div>
+
+    <h2><span class="icon">🧠</span> Одéржимость (джинн в человеке)</h2>
+    <p>
+      В исламе признаётся возможность одержимости — когда джинн вселяется в человека и причиняет ему вред. 
+      Это может проявляться в виде болезней, психических расстройств, странного поведения, потери сознания. 
+      Лечение осуществляется с помощью Корана (рукъя), дуа и обращения к Аллаху. 
+      Пророк (САВ) читал специальные дуа для изгнания джиннов.
+    </p>
+    <div class="quote">
+      «Читайте Коран, ибо он приходит в Судный день как заступник для своих читающих» (Муслим)
+    </div>
+
+    <h2><span class="icon">📖</span> Сура «Аль-Джинн» и её значение</h2>
+    <p>
+      В 72-й суре Корана рассказывается о том, как группа джиннов услышала чтение Корана Пророком (САВ) и уверовала. 
+      Они удивились его красоте и назидательности, и призвали свой народ к вере. 
+      Эта сура также содержит предупреждение для людей и джиннов о том, что они не смогут избежать наказания Аллаха.
+    </p>
+    <ul>
+      <li>Джинны признали, что Аллах един, и что никто не имеет права на поклонение, кроме Него.</li>
+      <li>Они поняли, что некоторые из них были несправедливы, а другие — праведны.</li>
+      <li>Они предупредили, что те, кто ослушается Аллаха, попадут в Ад.</li>
+    </ul>
+
+    <h2><span class="icon">💡</span> Важные уроки из истории джиннов</h2>
+    <ul>
+      <li>Джинны — такие же творения Аллаха, как и люди, и они будут судимы в Судный день.</li>
+      <li>Вера в джиннов — часть имана, отрицание их — неверие.</li>
+      <li>Джинны могут быть полезными, если они уверовали, но нельзя вступать с ними в сделки или поклоняться им.</li>
+      <li>Защита от них — через веру, поклонение и обращение к Аллаху.</li>
+      <li>Ислам — это религия, которая охватывает все творения, включая джиннов.</li>
+    </ul>
+    <div class="quote">
+      «О сонм джиннов и людей! Если вы можете проникнуть за пределы небес и земли, то проникните. Но вы не проникните иначе, как обладая властью» (Коран, 55:33)
+      <span class="source">— Сура «Ар-Рахман»</span>
+    </div>
+
+    <p style="color:var(--acc3);font-weight:600;text-align:center;margin-top:20px;">
+      ❝ О Аллах, защити нас от зла джиннов и шайтанов ❞
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Ислам · знание и свет</span>
+  </footer>
+
+</div>
+</div>
+
+</body>
+</html>

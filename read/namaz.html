@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Намаз · Исламский гид</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --acc:#8b5cf6;
+  --acc2:#a78bfa;
+  --acc3:#c4b5fd;
+  --bg:#07090e;
+  --bg2:#0c0f17;
+  --bg3:#111520;
+  --bg4:#161b28;
+  --brd:rgba(255,255,255,.055);
+  --brd-h:rgba(139,92,246,.4);
+  --txt:rgba(255,255,255,.92);
+  --txt2:rgba(255,255,255,.60);
+  --txt3:rgba(255,255,255,.30);
+  --gold:#fbbf24;
+  --green:#34d399;
+  --rose:#fb7185;
+  --shadow:0 20px 60px rgba(99,60,220,.20);
+  --radius:28px;
+}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  padding:24px 16px 56px;
+  overflow-x:hidden;
+  color:var(--txt);
+}
+
+/* орбы */
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
+.orb1{
+  width:700px;height:700px;top:-300px;left:-200px;
+  background:radial-gradient(circle,rgba(99,60,220,.09),transparent 65%);
+  animation:orbA 15s ease-in-out infinite;
+}
+.orb2{
+  width:500px;height:500px;bottom:-200px;right:-150px;
+  background:radial-gradient(circle,rgba(139,92,246,.07),transparent 65%);
+  animation:orbA 20s ease-in-out infinite reverse;
+}
+.orb3{
+  width:300px;height:300px;top:40%;left:50%;
+  background:radial-gradient(circle,rgba(59,130,246,.04),transparent 65%);
+  animation:orbA 25s ease-in-out infinite;
+}
+@keyframes orbA{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-25px,35px) scale(.95)}
+}
+
+.page{
+  position:relative;z-index:1;
+  max-width:960px;margin:0 auto;
+}
+
+.wrap{
+  background:linear-gradient(160deg,rgba(17,21,32,.95) 0%,rgba(10,13,20,.98) 100%);
+  border:1px solid var(--brd);
+  border-radius:40px;
+  padding:36px 32px 48px;
+  box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.02) inset,0 0 100px rgba(99,60,220,.04);
+  animation:wrapIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes wrapIn{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:14px 16px;
+}
+
+.brand{display:flex;align-items:center;gap:15px}
+.brand-icon{
+  width:50px;height:50px;border-radius:17px;flex-shrink:0;
+  background:linear-gradient(145deg,#5b21b6,#8b5cf6 50%,#a78bfa);
+  display:flex;align-items:center;justify-content:center;
+  font-size:23px;font-weight:900;color:#fff;
+  box-shadow:0 8px 32px rgba(99,60,220,.5),0 0 0 1px rgba(196,181,253,.15) inset;
+  position:relative;overflow:hidden;
+  animation:iconBob 5s ease-in-out infinite;
+}
+.brand-icon::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);
+}
+@keyframes iconBob{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-2px) rotate(.5deg)}
+  75%{transform:translateY(2px) rotate(-.5deg)}
+}
+.brand-txt{display:flex;flex-direction:column;gap:2px}
+.brand-txt .main{
+  font-size:24px;font-weight:900;letter-spacing:-1px;line-height:1;
+  background:linear-gradient(110deg,#fff 0%,#c4b5fd 55%,#818cf8 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.brand-txt .sub{
+  font-size:10.5px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--txt3);
+}
+
+.topbar-r{display:flex;align-items:center;gap:12px}
+.back-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:100px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--brd);
+  color:var(--txt2);
+  font-size:13px;font-weight:600;
+  text-decoration:none;
+  transition:background .3s,border-color .3s,transform .25s,color .3s;
+  white-space:nowrap;
+}
+.back-btn:hover{
+  background:var(--bg4);
+  border-color:var(--brd-h);
+  color:var(--txt);
+  transform:translateY(-2px);
+}
+.back-btn:active{transform:scale(.96)}
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--acc2);flex-shrink:0;
+  box-shadow:0 0 10px var(--acc2);
+  animation:dotPulse 2.2s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.6)}
+}
+
+/* ── DIVIDER ── */
+.div{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,92,246,.2) 25%,rgba(99,60,220,.35) 50%,rgba(139,92,246,.2) 75%,transparent);
+  margin-bottom:30px;
+}
+
+/* ── CONTENT ── */
+.content h1{
+  font-size:clamp(28px,5vw,42px);
+  font-weight:900;
+  letter-spacing:-1px;
+  background:linear-gradient(135deg,#fff 0%,#c4b5fd 50%,#a78bfa 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;
+}
+.content .subtitle{
+  font-size:14px;
+  color:var(--txt2);
+  margin-bottom:28px;
+  font-weight:500;
+}
+.content h2{
+  font-size:22px;
+  font-weight:800;
+  color:var(--acc2);
+  margin:32px 0 14px 0;
+  letter-spacing:-.3px;
+  border-bottom:1px solid rgba(167,139,250,.15);
+  padding-bottom:8px;
+}
+.content h2 .icon{font-size:26px;margin-right:8px}
+.content h3{
+  font-size:18px;
+  font-weight:700;
+  color:var(--gold);
+  margin:24px 0 10px 0;
+}
+.content p{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--txt2);
+  margin-bottom:16px;
+}
+.content ul{
+  list-style:none;
+  padding:0;
+  margin:10px 0 18px 0;
+}
+.content ul li{
+  padding:8px 0 8px 28px;
+  position:relative;
+  border-bottom:1px solid rgba(255,255,255,.03);
+  color:var(--txt2);
+  font-size:14.5px;
+  line-height:1.6;
+}
+.content ul li::before{
+  content:"✦";
+  position:absolute;
+  left:4px;
+  top:8px;
+  color:var(--acc2);
+  font-size:13px;
+  opacity:.6;
+}
+.content .quote{
+  background:rgba(139,92,246,.06);
+  border-left:4px solid var(--acc2);
+  padding:16px 20px;
+  border-radius:0 16px 16px 0;
+  margin:18px 0;
+  font-style:italic;
+  color:var(--txt);
+  font-size:15px;
+  line-height:1.7;
+}
+.content .quote .source{
+  display:block;
+  margin-top:6px;
+  font-style:normal;
+  color:var(--txt3);
+  font-size:13px;
+  font-weight:500;
+}
+.content .highlight{
+  color:var(--gold);
+  font-weight:600;
+}
+.content .green{color:var(--green)}
+.content .rose{color:var(--rose)}
+
+/* ── расписание намаза ── */
+.prayer-schedule{
+  margin:32px 0 20px;
+  background:var(--bg3);
+  border-radius:24px;
+  padding:20px 24px;
+  border:1px solid var(--brd);
+}
+.prayer-schedule .schedule-title{
+  font-size:16px;
+  font-weight:700;
+  color:var(--acc3);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.prayer-schedule .city-selector{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.prayer-schedule select{
+  padding:8px 14px;
+  border-radius:60px;
+  background:var(--bg2);
+  border:1px solid var(--brd);
+  color:var(--txt);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  outline:none;
+  cursor:pointer;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a78bfa' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:40px;
+  min-width:140px;
+}
+.prayer-schedule .date-display{
+  font-size:14px;
+  font-weight:500;
+  color:var(--txt2);
+  margin-bottom:12px;
+}
+.prayer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.prayer-item{
+  background:var(--bg2);
+  border-radius:14px;
+  padding:12px 8px;
+  text-align:center;
+  border:1px solid var(--brd);
+}
+.prayer-item .p-name{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  color:var(--txt3);
+  letter-spacing:.5px;
+}
+.prayer-item .p-time{
+  font-size:18px;
+  font-weight:700;
+  color:var(--txt);
+  margin-top:2px;
+}
+.prayer-item.current{
+  border-color:var(--green);
+  background:rgba(16,185,129,.08);
+}
+.prayer-item.current .p-time{color:var(--green);}
+.loader{
+  text-align:center;
+  padding:20px;
+  color:var(--txt2);
+}
+.loader .spinner{
+  display:inline-block;
+  width:24px;height:24px;
+  border:3px solid rgba(139,92,246,.15);
+  border-top-color:var(--acc2);
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin-bottom:8px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-msg{
+  color:var(--rose);
+  background:rgba(251,113,133,.08);
+  border-radius:14px;
+  padding:12px 16px;
+  text-align:center;
+}
+
+@media(max-width:600px){
+  .prayer-grid{grid-template-columns:repeat(2,1fr);}
+  .prayer-schedule{padding:16px;}
+  .prayer-item .p-time{font-size:16px;}
+}
+@media(max-width:400px){
+  .prayer-grid{grid-template-columns:1fr 1fr;}
+  .prayer-schedule .city-selector{flex-direction:column;align-items:stretch;}
+  .prayer-schedule select{min-width:unset;}
+}
+
+/* ── FOOTER ── */
+.footer{
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;justify-content:center;
+  color:var(--txt3);font-size:11px;font-weight:500;letter-spacing:.3px;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:740px){
+  .wrap{padding:28px 20px 36px;border-radius:32px}
+  .content h2{font-size:20px}
+  .content p{font-size:14px}
+  .content ul li{font-size:13.5px}
+}
+@media(max-width:500px){
+  .wrap{padding:20px 14px 28px;border-radius:24px}
+  .topbar{gap:10px}
+  .brand-icon{width:40px;height:40px;font-size:19px;border-radius:14px}
+  .brand-txt .main{font-size:19px}
+  .back-btn{padding:6px 12px;font-size:12px}
+  .back-btn span:last-child{display:none}
+  .content h1{font-size:26px}
+  .content h2{font-size:18px}
+  .content h3{font-size:16px}
+  .content p{font-size:13.5px}
+  .content ul li{font-size:13px;padding:6px 0 6px 24px}
+  .content .quote{font-size:13.5px;padding:12px 14px}
+}
+@media(max-width:360px){
+  .wrap{padding:16px 10px 22px;border-radius:18px}
+  .brand-icon{width:34px;height:34px;font-size:16px}
+  .brand-txt .main{font-size:17px}
+  .content h1{font-size:22px}
+  .content h2{font-size:16px}
+  .content p{font-size:12.5px}
+}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(139,92,246,.2);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(139,92,246,.38)}
+</style>
+</head>
+<body>
+
+<!-- орбы -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="page">
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div class="brand-txt">
+        <span class="main">Hack_rage</span>
+        <span class="sub">исламский гид</span>
+      </div>
+    </div>
+    <div class="topbar-r">
+      <a href="read.html" class="back-btn"><span>←</span><span>Назад</span></a>
+      <span class="badge-dot"></span>
+    </div>
+  </header>
+
+  <div class="div"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <h1>🕌 Намаз</h1>
+    <div class="subtitle">Второй столп Ислама — молитва, связь между рабом и его Господом</div>
+
+    <p>
+      Намаз (салят) — это <span class="highlight">обязательная ежедневная молитва</span>, которую каждый взрослый мусульманин совершает пять раз в день. 
+      Это основа религии, и пророк Мухаммад (САВ) сказал: <span class="highlight">«Намаз — это опора религии»</span>. 
+      Намаз очищает душу, укрепляет веру и напоминает о цели жизни — поклонении Всевышнему.
+    </p>
+
+    <h2><span class="icon">📖</span> Пять обязательных намазов</h2>
+    <ul>
+      <li><strong>Фаджр</strong> — утренний намаз (2 раката сунна, 2 раката фард). Время от рассвета до восхода солнца.</li>
+      <li><strong>Зухр</strong> — полуденный намаз (4 раката сунна, 4 раката фард, 2 раката сунна). Начинается после зенита солнца.</li>
+      <li><strong>Аср</strong> — послеполуденный намаз (4 раката фард). Время — когда тень предмета становится равной его длине.</li>
+      <li><strong>Магриб</strong> — вечерний намаз (3 раката фард, 2 раката сунна). Сразу после заката солнца.</li>
+      <li><strong>Иша</strong> — ночной намаз (4 раката сунна, 4 раката фард, 2 раката сунна, 3 раката витр). После исчезновения вечерней зари.</li>
+    </ul>
+
+    <h2><span class="icon">🧾</span> Условия намаза</h2>
+    <p>Для того чтобы намаз был действителен, необходимо соблюсти <span class="highlight">шесть условий</span>:</p>
+    <ul>
+      <li><span class="green">Время</span> — совершать намаз в отведённое для него время.</li>
+      <li><span class="green">Омовение</span> — наличие малого (вуду) или большого (гусль) омовения.</li>
+      <li><span class="green">Чистота тела, одежды и места</span> — одежда и место должны быть чистыми от наджасы.</li>
+      <li><span class="green">Сокрытие аврата</span> — закрытие определённых частей тела (для мужчин — от пупка до колен, для женщин — всё тело, кроме лица и кистей).</li>
+      <li><span class="green">Направление на Киблу</span> — лицом в сторону Каабы (Мекка).</li>
+      <li><span class="green">Намерение</span> — намерение в сердце совершить конкретный намаз.</li>
+    </ul>
+
+    <h2><span class="icon">🕋</span> Столпы намаза</h2>
+    <p>В намазе есть <span class="highlight">обязательные действия (рукны)</span>, без которых намаз не действителен:</p>
+    <ul>
+      <li><strong>Такбир аль-ихрам</strong> — произнесение «Аллаху Акбар» в начале.</li>
+      <li><strong>Чтение Корана</strong> — сура «Аль-Фатиха» в каждом ракате.</li>
+      <li><strong>Руку’</strong> — поясной поклон.</li>
+      <li><strong>Суджуд</strong> — два земных поклона в каждом ракате.</li>
+      <li><strong>Сидение между суджудами</strong> — сидение после первого суджуда.</li>
+      <li><strong>Сидение для ташаххуда</strong> — сидение после последнего раката.</li>
+      <li><strong>Таслим</strong> — завершение намаза словами «Ассаляму алейкум ва рахматуллах» в обе стороны.</li>
+    </ul>
+
+    <h2><span class="icon">✨</span> Желательные действия (сунны)</h2>
+    <p>Кроме обязательных, есть <span class="highlight">желательные действия</span>, которые приносят дополнительную награду:</p>
+    <ul>
+      <li>Поднятие рук при такбире.</li>
+      <li>Совершение <strong>дуа аль-истифтах</strong> в начале.</li>
+      <li>Произнесение <strong>тасбиха</strong> (Субхана Раббия аль-Азым) в руку’ и (Субхана Раббия аль-А’ля) в суджуде.</li>
+      <li>Чтение дополнительных сур после Аль-Фатихи.</li>
+      <li>Восполнение пропущенных ракатов сунны.</li>
+      <li>Совершение намаза в мечети с джамаатом (коллективно) — это в 27 раз превосходит индивидуальный намаз.</li>
+    </ul>
+    <div class="quote">
+      «Совершайте намаз так, как видите меня совершающим его» (Пророк Мухаммад САВ)
+      <span class="source">— Сахих аль-Бухари</span>
+    </div>
+
+    <h2><span class="icon">🕒</span> Время намаза в Кыргызстане</h2>
+    <p>Ниже вы можете выбрать город и увидеть актуальное расписание на сегодня. Данные обновляются через API.</p>
+
+    <!-- ─── РАСПИСАНИЕ НАМАЗА ─── -->
+    <div class="prayer-schedule" id="scheduleBlock">
+      <div class="schedule-title">🕌 Расписание намаза</div>
+      <div class="city-selector">
+        <label for="citySelect" style="color:var(--txt2);font-weight:600;font-size:13px;">Город:</label>
+        <select id="citySelect">
+          <option value="Бишкек">Бишкек</option>
+          <option value="Ош">Ош</option>
+          <option value="Джалал-Абад">Джалал-Абад</option>
+          <option value="Каракол">Каракол</option>
+          <option value="Нарын">Нарын</option>
+          <option value="Талас">Талас</option>
+          <option value="Баткен">Баткен</option>
+        </select>
+      </div>
+      <div class="date-display" id="dateDisplay">—</div>
+      <div id="prayerContainer">
+        <div class="loader"><div class="spinner"></div><div>Загрузка…</div></div>
+      </div>
+    </div>
+
+    <h2><span class="icon">🤲</span> Дуа после намаза</h2>
+    <p>После завершения обязательной молитвы желательно читать <span class="highlight">тасбих</span> (33 раза «Субханаллах», 33 «Альхамдулиллах», 33 «Аллаху Акбар» и один раз «Ля иляха илляллах…») и совершать дуа. Пророк (САВ) часто обращался к Аллаху с просьбами после намаза.</p>
+    <div class="quote">
+      «Ближе всего к Аллаху раб бывает во время земного поклона, поэтому чаще обращайтесь к Нему с мольбами» (Муслим)
+    </div>
+
+    <h2><span class="icon">🏛️</span> Намаз в мечети и коллективный намаз</h2>
+    <p>
+      Совершение намаза в мечети с джамаатом (коллективно) является <span class="highlight">очень желательным для мужчин</span>, а для женщин — лучше дома. 
+      Коллективный намаз в 27 раз превосходит по награде индивидуальный. 
+      Имам ведёт молитву, а остальные следуют за ним. 
+      В пятницу совершается <strong>Джума-намаз</strong> — обязательная коллективная молитва вместо Зухра.
+    </p>
+
+    <h2><span class="icon">🕌</span> Дополнительные намазы</h2>
+    <ul>
+      <li><strong>Витру</strong> — нечётное количество ракатов после Иша (минимум 1, чаще 3).</li>
+      <li><strong>Тахаджуд</strong> — ночная молитва, совершаемая после сна, очень ценная.</li>
+      <li><strong>Духа</strong> — утренняя молитва через 20–30 минут после восхода.</li>
+      <li><strong>Истихара</strong> — намаз для принятия решения.</li>
+      <li><strong>Таравих</strong> — в месяц Рамадан после Иша (20 ракатов).</li>
+    </ul>
+
+    <h2><span class="icon">📖</span> Важность намаза в Коране</h2>
+    <div class="quote">
+      «Воистину, намаз у верующих предписан в определённое время» (Коран, 4:103)
+    </div>
+    <div class="quote">
+      «Читайте то, что внушено вам из Писания, и совершайте намаз. Воистину, намаз удерживает от мерзости и предосудительного» (Коран, 29:45)
+    </div>
+
+    <p style="color:var(--acc3);font-weight:600;text-align:center;margin-top:20px;">
+      ❝ Пусть наш намаз будет принят, а сердце наполнено смиренностью ❞
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Ислам · знание и свет</span>
+  </footer>
+
+</div>
+</div>
+
+<script>
+// ─── Расписание намаза (API Aladhan) ───
+(function(){
+  const citySelect = document.getElementById('citySelect');
+  const dateDisplay = document.getElementById('dateDisplay');
+  const container = document.getElementById('prayerContainer');
+
+  const PRAYER_NAMES = {
+    Fajr:'Фаджр', Sunrise:'Восход', Dhuhr:'Зухр',
+    Asr:'Аср', Maghrib:'Магриб', Isha:'Иша'
+  };
+  const PRAYER_ICONS = {
+    Fajr:'🌅', Sunrise:'☀️', Dhuhr:'🌤️', Asr:'🌇', Maghrib:'🌆', Isha:'🌙'
+  };
+
+  async function fetchPrayerTimes(city){
+    try{
+      const url = `https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=Kyrgyzstan&method=8`;
+      const resp = await fetch(url);
+      if(!resp.ok) throw new Error('Сеть');
+      const data = await resp.json();
+      if(data.code!==200 || !data.data) throw new Error('API');
+      const timings = data.data.timings;
+      const date = data.data.date.readable;
+      dateDisplay.textContent = `📅 ${date}`;
+      renderTimes(timings);
+    }catch(e){
+      console.error(e);
+      container.innerHTML = `<div class="error-msg">❌ Не удалось загрузить расписание. Попробуйте позже.</div>`;
+    }
+  }
+
+  function renderTimes(timings){
+    const now = new Date();
+    const nowMin = now.getHours()*60 + now.getMinutes();
+
+    function toMin(str){
+      const p = str.split(':');
+      return parseInt(p[0])*60 + parseInt(p[1]);
+    }
+
+    const order = ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+    const timesMap = {};
+    for(const key of order){
+      if(timings[key]) timesMap[key] = toMin(timings[key]);
+    }
+    let currentKey = null;
+    const sorted = Object.keys(timesMap).sort((a,b)=>timesMap[a]-timesMap[b]);
+    for(let i=sorted.length-1; i>=0; i--){
+      if(timesMap[sorted[i]] <= nowMin){
+        currentKey = sorted[i];
+        break;
+      }
+    }
+
+    let html = '<div class="prayer-grid">';
+    for(const key of order){
+      if(!timings[key]) continue;
+      const isCurrent = (key === currentKey);
+      html += `
+        <div class="prayer-item${isCurrent ? ' current' : ''}">
+          <div class="p-name">${PRAYER_NAMES[key]||key}</div>
+          <div class="p-time">${timings[key]}</div>
+        </div>
+      `;
+    }
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  function onCityChange(){
+    const city = citySelect.value;
+    container.innerHTML = `<div class="loader"><div class="spinner"></div><div>Загрузка…</div></div>`;
+    dateDisplay.textContent = '⏳ обновление…';
+    fetchPrayerTimes(city);
+  }
+
+  citySelect.addEventListener('change', onCityChange);
+  onCityChange(); // Бишкек по умолчанию
+})();
+</script>
+</body>
+</html>

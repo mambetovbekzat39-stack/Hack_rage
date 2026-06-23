@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hack_rage · Исламский гид</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --acc:#8b5cf6;
+  --acc2:#a78bfa;
+  --acc3:#c4b5fd;
+  --bg:#07090e;
+  --bg2:#0c0f17;
+  --bg3:#111520;
+  --bg4:#161b28;
+  --brd:rgba(255,255,255,.055);
+  --brd-h:rgba(139,92,246,.4);
+  --txt:rgba(255,255,255,.9);
+  --txt2:rgba(255,255,255,.55);
+  --txt3:rgba(255,255,255,.25);
+  --new:#10b981;
+  --tt:#fe2c55;
+}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  padding:24px 16px 56px;
+  overflow-x:hidden;
+}
+
+/* ── ambient orbs ── */
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px)}
+.orb1{
+  width:700px;height:700px;top:-300px;left:-200px;
+  background:radial-gradient(circle,rgba(99,60,220,.09),transparent 65%);
+  animation:orbA 15s ease-in-out infinite;
+}
+.orb2{
+  width:500px;height:500px;bottom:-200px;right:-150px;
+  background:radial-gradient(circle,rgba(139,92,246,.07),transparent 65%);
+  animation:orbA 20s ease-in-out infinite reverse;
+}
+.orb3{
+  width:300px;height:300px;top:40%;left:50%;
+  background:radial-gradient(circle,rgba(59,130,246,.04),transparent 65%);
+  animation:orbA 25s ease-in-out infinite;
+}
+@keyframes orbA{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-25px,35px) scale(.95)}
+}
+
+/* ── page ── */
+.page{
+  position:relative;z-index:1;
+  max-width:1120px;margin:0 auto;
+}
+
+/* ── WRAPPER CARD ── */
+.wrap{
+  background:linear-gradient(160deg,rgba(17,21,32,.95) 0%,rgba(10,13,20,.98) 100%);
+  border:1px solid var(--brd);
+  border-radius:40px;
+  padding:36px 32px 48px;
+  box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.02) inset,0 0 100px rgba(99,60,220,.04);
+  animation:wrapIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes wrapIn{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;flex-wrap:wrap;gap:14px 16px;
+}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:15px}
+
+.brand-icon{
+  width:50px;height:50px;border-radius:17px;flex-shrink:0;
+  background:linear-gradient(145deg,#5b21b6,#8b5cf6 50%,#a78bfa);
+  display:flex;align-items:center;justify-content:center;
+  font-size:23px;font-weight:900;color:#fff;
+  box-shadow:0 8px 32px rgba(99,60,220,.5),0 0 0 1px rgba(196,181,253,.15) inset;
+  position:relative;overflow:hidden;
+  animation:iconBob 5s ease-in-out infinite;
+}
+.brand-icon::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);
+}
+@keyframes iconBob{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-2px) rotate(.5deg)}
+  75%{transform:translateY(2px) rotate(-.5deg)}
+}
+
+.brand-txt{display:flex;flex-direction:column;gap:2px}
+.brand-txt .main{
+  font-size:24px;font-weight:900;letter-spacing:-1px;line-height:1;
+  background:linear-gradient(110deg,#fff 0%,#c4b5fd 55%,#818cf8 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.brand-txt .sub{
+  font-size:10.5px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--txt3);
+}
+
+/* правый верхний угол — кнопка назад и точка */
+.topbar-r{
+  display:flex;align-items:center;gap:12px;
+}
+
+/* кнопка "Назад" */
+.back-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;
+  border-radius:100px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--brd);
+  color:var(--txt2);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .3s,border-color .3s,transform .25s,color .3s;
+  white-space:nowrap;
+}
+.back-btn:hover{
+  background:var(--bg4);
+  border-color:var(--brd-h);
+  color:var(--txt);
+  transform:translateY(-2px);
+}
+.back-btn:active{transform:scale(.96)}
+
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--acc2);flex-shrink:0;
+  box-shadow:0 0 10px var(--acc2);
+  animation:dotPulse 2.2s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.6)}
+}
+
+/* ── DIVIDER ── */
+.div{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,92,246,.2) 25%,rgba(99,60,220,.35) 50%,rgba(139,92,246,.2) 75%,transparent);
+  margin-bottom:30px;
+}
+
+/* ── LABEL ── */
+.lbl{
+  font-size:10.5px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--txt3);
+  margin-bottom:20px;padding:0 2px;
+}
+
+/* ── GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:18px 15px;
+}
+
+/* ── CARD ── */
+.card{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:var(--bg3);
+  border:1px solid var(--brd);
+  border-radius:28px;
+  padding:24px 12px 22px;
+  min-height:140px;
+  overflow:hidden;
+  opacity:0;
+  animation:cardIn .55s cubic-bezier(.34,1.56,.64,1) forwards;
+  transition:
+    transform .4s cubic-bezier(.34,1.56,.64,1),
+    border-color .3s,background .3s,box-shadow .4s;
+  cursor:pointer;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(22px) scale(.92)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:28px;
+  background:linear-gradient(145deg,rgba(167,139,250,.07) 0%,transparent 55%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.card:hover{
+  transform:translateY(-8px) scale(1.025);
+  background:var(--bg4);
+  border-color:var(--brd-h);
+  box-shadow:0 22px 56px rgba(99,60,220,.22),0 0 0 1px rgba(99,60,220,.1),0 4px 16px rgba(0,0,0,.55);
+}
+.card:hover::before{opacity:1}
+.card:active{transform:translateY(-2px) scale(1.01)}
+.card:focus-visible{outline:2px solid var(--acc2);outline-offset:3px}
+
+.card-icon{
+  font-size:44px;
+  line-height:1;
+  margin-bottom:10px;
+  filter:drop-shadow(0 0 16px rgba(139,92,246,.20));
+  transition:transform .35s;
+}
+.card:hover .card-icon{
+  transform:scale(1.08);
+}
+
+.card-name{
+  font-size:15px;
+  font-weight:700;
+  color:var(--txt2);
+  text-align:center;
+  letter-spacing:.2px;
+  transition:color .25s;
+  line-height:1.3;
+}
+.card:hover .card-name{
+  color:var(--txt);
+}
+
+.bot-glow{
+  position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
+  width:70%;height:36px;
+  background:radial-gradient(ellipse,rgba(99,60,220,.22),transparent 70%);
+  filter:blur(6px);opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.card:hover .bot-glow{opacity:1}
+
+/* ── FOOTER ── */
+.footer{
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;justify-content:center;
+  color:var(--txt3);font-size:11px;font-weight:500;letter-spacing:.3px;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .wrap{border-radius:32px;padding:28px 22px 40px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:15px 12px}
+}
+@media(max-width:640px){
+  body{padding:12px 10px 40px}
+  .wrap{border-radius:26px;padding:22px 16px 32px}
+  .topbar{margin-bottom:22px}
+  .brand-icon{width:42px;height:42px;font-size:19px;border-radius:14px}
+  .brand-txt .main{font-size:20px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:13px 10px}
+  .card{min-height:120px;padding:20px 10px 18px}
+  .card-icon{font-size:36px}
+  .card-name{font-size:13px}
+  .back-btn{padding:6px 12px;font-size:12px}
+}
+@media(max-width:430px){
+  body{padding:8px 8px 32px}
+  .wrap{border-radius:20px;padding:18px 12px 26px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px 8px}
+  .card{min-height:100px;padding:16px 6px 14px;border-radius:20px}
+  .card-icon{font-size:30px}
+  .card-name{font-size:11.5px}
+  .topbar-r{gap:8px}
+  .back-btn{padding:5px 10px;font-size:11px;gap:4px}
+  .back-btn span{display:none} /* скрываем текст, оставляем только стрелку */
+}
+@media(max-width:340px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .card{min-height:90px;padding:12px 4px 10px}
+  .card-icon{font-size:26px}
+  .card-name{font-size:10px}
+}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(139,92,246,.2);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(139,92,246,.38)}
+</style>
+</head>
+<body>
+
+<!-- ambient orbs -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="page">
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div class="brand-txt">
+        <span class="main">Hack_rage</span>
+        <span class="sub">исламский гид</span>
+      </div>
+    </div>
+    <div class="topbar-r">
+      <!-- КНОПКА НАЗАД (ведёт на index.html) -->
+      <a href="/Nur.html" class="back-btn">
+        <span>←</span>
+        <span>Назад</span>
+      </a>
+      <span class="badge-dot"></span>
+    </div>
+  </header>
+
+  <div class="div"></div>
+  <p class="lbl">📖 Выберите тему</p>
+
+  <!-- GRID -->
+  <div class="grid">
+    <a href="./jannat.html" class="card" style="animation-delay:0ms">
+      <span class="card-icon">☀️</span>
+      <span class="card-name">Рай и Ад</span>
+      <div class="bot-glow"></div>
+    </a>
+    <a href="./namaz.html" class="card" style="animation-delay:60ms">
+      <span class="card-icon">🕌</span>
+      <span class="card-name">Намаз</span>
+      <div class="bot-glow"></div>
+    </a>
+    <a href="iblis.html" class="card" style="animation-delay:120ms">
+      <span class="card-icon">🔥</span>
+      <span class="card-name">Иблис (шайтан)</span>
+      <div class="bot-glow"></div>
+    </a>
+    <a href="jinn.html" class="card" style="animation-delay:180ms">
+      <span class="card-icon">🌪️</span>
+      <span class="card-name">Джинны</span>
+      <div class="bot-glow"></div>
+    </a>
+   
+    <a href="prophets.html" class="card" style="animation-delay:300ms">
+      <span class="card-icon">📜</span>
+      <span class="card-name">Пророки</span>
+      <div class="bot-glow"></div>
+    </a>
+    <a href="angels.html" class="card" style="animation-delay:360ms">
+      <span class="card-icon">🪽</span>
+      <span class="card-name">Ангелы</span>
+      <div class="bot-glow"></div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Ислам · знание и свет</span>
+  </footer>
+
+</div>
+</div>
+
+</body>
+</html>
